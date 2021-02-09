@@ -1,1 +1,1 @@
-window.alert('きさま！みているな！')
+window.alert('きさま！みているな！');
