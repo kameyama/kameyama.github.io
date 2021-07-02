@@ -1,0 +1,24 @@
+<!-- 開発バージョン、便利なコンソールの警告が含まれています -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+  {{ message }} {{ dd }}
+
+  <table>
+    <tr v-for="row in message">
+      <td v-for="x in row">{{ x }}</td>
+    </tr>
+  </table>
+</div>
+
+<script>
+  var app = new Vue({
+    el: "#app",
+    data: {
+      message: [
+        [1, 2, 3],
+        [4, 5, 6, 7],
+      ],
+    },
+  });
+</script>

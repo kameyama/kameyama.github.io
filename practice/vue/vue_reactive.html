@@ -1,0 +1,46 @@
+<!-- 開発バージョン、便利なコンソールの警告が含まれています -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<html>
+  <div id="app-5">
+    <p>{{ message }}</p>
+    <button v-on:click="reverseMessage">Reverse Message</button>
+  </div>
+
+  <p>does not work</p>
+
+  <div id="event-handling">
+    <p>{{ message }}</p>
+    <button v-on:click="reverseMessage">Reverse Message</button>
+  </div>
+</html>
+
+<!-- ************************************************************ script ************************************************************ -->
+<script>
+  var app5 = new Vue({
+    el: "#app-5",
+    data: {
+      message: "Hello Vue.js! lol",
+    },
+    methods: {
+      reverseMessage: function () {
+        this.message = this.message.split("").reverse().join("");
+      },
+    },
+  });
+
+  const EventHandling = {
+    data() {
+      return {
+        message: "Hello Vue.js!",
+      };
+    },
+    methods: {
+      reverseMessage() {
+        this.message = this.message.split("").reverse().join("");
+      },
+    },
+  };
+
+  Vue.createApp(EventHandling).mount("#event-handling");
+</script>

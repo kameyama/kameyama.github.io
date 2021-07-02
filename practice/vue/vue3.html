@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="index.css" />
+
+    <!-- does not work
+          <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> --
+          -->
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+
+  <body>
+    <div id="counter">Counter: {{ counter }}</div>
+
+    <div id="counterapp">{{counter}}</div>
+
+    <div id="bind-attribute" class="demo">
+      <span v-bind:title="message">
+        Hover your mouse over me for a few seconds to see my dynamically-bound
+        title!
+      </span>
+    </div>
+  </body>
+</html>
+<script>
+  const Counter = {
+    data() {
+      return {
+        counter: 0,
+      };
+    },
+  };
+
+  Vue.createApp(Counter).mount("#counter");
+
+  const CounterApp = {
+    data() {
+      return {
+        counter: 0,
+      };
+    },
+    mounted() {
+      setInterval(() => {
+        this.counter++;
+      }, 1000);
+    },
+  };
+
+  Vue.createApp(CounterApp).mount("#counterapp");
+
+  const AttributeBindingApp = {
+    data() {
+      return {
+        message: "You loaded this page on " + new Date().toLocaleString(),
+      };
+    },
+  };
+
+  Vue.createApp(AttributeBindingApp).mount("#bind-attribute");
+</script>

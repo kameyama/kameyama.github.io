@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>iij-bootcample Vue.js</title>
+    <base href="/" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div>{{ message }}</div>
+
+      <button v-on:click="loadData">load data</button>
+
+      <people-table v-bind:peoples="peoples"></people-table>
+    </div>
+
+    <script type="text/javascript">
+      Vue.component("people-table", {
+        props: ["peoples"],
+        template: `
+<table border="1">
+  <tr>
+    <th>id</th>
+    <th>name</th>
+    <th>name2</th>
+  </tr>
+  <tr v-for="people in peoples">
+    <td>{{ people.id }}</td>
+    <td>{{ people.name }}</td>
+    <td>{{ people.name }}</td>
+  </tr>
+</table>
+`,
+      });
+    </script>
+
+    <script type="text/javascript">
+      const app = new Vue({
+        el: "#app",
+        data: {
+          message: "Welcome to iij-bootcamp!!",
+          peoples: [],
+        },
+        methods: {
+          loadData: function () {
+            const self = this;
+
+            fetch(
+              "https://raw.githubusercontent.com/iij/bootcamp/master/test.json"
+            )
+              .then((res) => {
+                return res.json();
+              })
+              .then((data) => {
+                console.log(data);
+                self.peoples = data;
+              });
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

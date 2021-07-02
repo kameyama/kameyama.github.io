@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.js"></script>
+
+<html>
+  <div id="app">
+    <div class="chessboard">
+      <div v-for="line in chessboard">
+        <div v-for="cell in line">{{cell}}</div>
+        <p>next</p>
+      </div>
+    </div>
+  </div>
+</html>
+
+<script>
+  var app = new Vue({
+    el: "#app",
+    data: {
+      chessboard: [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9, 0],
+      ],
+    },
+  });
+</script>
