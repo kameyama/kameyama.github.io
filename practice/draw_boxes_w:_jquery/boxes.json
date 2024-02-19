@@ -1,0 +1,28 @@
+{
+  "boxes": [
+    {
+      "left_top": [
+        0.0,
+        0.0
+      ],
+      "right_bottom": [
+        100.0,
+        100.0
+      ],
+      "importance": 0.3,
+      "box_confidence": 0.9
+    },
+    {
+      "left_top": [
+        200.0,
+        100.0
+      ],
+      "right_bottom": [
+        300.0,
+        400.0
+      ],
+      "importance": 0.9,
+      "box_confidence": 0.9
+    }
+  ]
+}

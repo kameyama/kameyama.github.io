@@ -21,16 +21,7 @@ window.onload = function () {
 };
 
 async function fetchJson(jsonPath) {
-    const response = await fetch(jsonPath
-        ,{
-            headers : { 
-              'Content-Type': 'application/json',
-              'Accept': 'application/json'
-             }
-           }
-          
-          
-        );
+    const response = await fetch(jsonPath);
     return await response.json();
 }
 
